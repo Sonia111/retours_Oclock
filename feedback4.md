@@ -10,16 +10,11 @@ Les points qu’on doit ajouter :
 2 -  Avec Apache, il est possible de réécrire les liens pour rendre transparente l'opération.
 on doit l’ajouter sous le dossier public un fichier .htaccess avec ce code :
 
-RewriteEngine On
-# dynamically setup base URI
+RewriteEngine On (dynamically setup base URI)
 RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
-RewriteRule ^(.*) - [E=BASE_URI:%1]
-# redirect every request to index.php
-# and give the relative URL in "_url" GET param
+RewriteRule ^(.*) - [E=BASE_URI:%1] (redirect every request to index.php  and give the relative URL in "_url" GET param)
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-# rediriger TOUTES les requêtes qui mène au dossier dans lequel se trouve le .htaccess vers index.php
-# appeler /products => index.php?_url=/products
+RewriteCond %{REQUEST_FILENAME} !-f  (rediriger TOUTES les requêtes qui mène au dossier dans lequel se trouve le .htaccess vers index.php)
 RewriteRule ^(.*)$ index.php [QSA,L]
 
 
