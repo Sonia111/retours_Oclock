@@ -5,8 +5,10 @@ et améliorations à ajouter
 Les points qu’on doit ajouter :
 
 1- Dans le fichier index.php et dans l’implémentation des routes il y a la fonction
-map qui peut prendre en paramètre les 2 méthodes GET et POST , ici il ya seulement la méthode GET : ( exemple ici pour l’ajout de student)
+map qui peut prendre en paramètre les 2 méthodes GET et POST , ici il ya seulement la méthode GET : 
+( exemple ici pour l’ajout de student)
 
+```bash
 $router->map(
 'GET | POST',
 '/students/add',
@@ -16,6 +18,7 @@ $router->map(
 ],
 'student_add_get'
 );
+```
 
 vous pouvez voir cette documentation pour AltRouter
 https://altorouter.com/usage/mapping-routes.html
@@ -33,7 +36,11 @@ Les améliorations :
 
 1- Dans le fichier index.php on peut  faire extraire les routes dans un fichier qu’on peut appeler “routes.php”
 et on le place sous la racine de projet , et après dans ce fichier index.php on fait l’inclure
-comme ca:  require __DIR__ . '/../app/routes.php';
+comme ca: 
+
+```bash
+ require __DIR__ . '/../app/routes.php';
+ ```
 
 2- Dans Views il manque les templates des erreurs et de navigation.
 
