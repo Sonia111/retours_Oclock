@@ -6,12 +6,14 @@ Les points qu’on doit ajouter :
 1 -  Avec Apache, il est possible de réécrire les liens pour rendre transparente l'opération. 
 on doit l’ajouter sous le dossier public un fichier .htaccess avec ce code :
 
+```bash
 RewriteEngine On (dynamically setup base URI)
 RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
 RewriteRule ^(.*) - [E=BASE_URI:%1] (redirect every request to index.php  and give the relative URL in "_url" GET param)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f  (rediriger TOUTES les requêtes qui mène au dossier dans lequel se trouve le .htaccess vers index.php)
 RewriteRule ^(.*)$ index.php [QSA,L]
+```
 
 
 Nous pouvons donc maintenant écrire :

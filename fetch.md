@@ -18,6 +18,8 @@ Ca permet de les écrire les unes en dessous des autres et de les exécuter les 
 
 Vous allez avoir du code qui va ressembler au pseudo code ci-dessous et qui sera très lisible. C'est ça l'avantage.
 
+```bash
+
 requete1.then(
          traiter la réussite de la réquete 1
          puis lancer la requete 2
@@ -32,9 +34,10 @@ requete1.then(
         .catch(
         Traiter une erreur dans l'une des requetes 
         )
-
+```
 Par exemple on va tester dans la console de navigateur une route d'ajout de teacher avec Fetch: 
 
+```bash
 fetch("http://localhost:80/teachers/add", {
         method: "POST",
         headers: {
@@ -49,3 +52,4 @@ fetch("http://localhost:80/teachers/add", {
 .then(response => response.json())
 .then(response => alert(response))
 .catch(error => alert("Erreur : " + error));
+```
