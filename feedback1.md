@@ -19,8 +19,9 @@ RewriteRule ^(.*)$ index.php [QSA,L]
 
 
 Nous pouvons donc maintenant écrire :
-
+```bash
 home.html (index.php?page=home)
+```
 
 En faite , Le fichier .htaccess est un fichier de configuration Apache . Le fichier est extrêmement puissant 
 et peut être utilisé pour aider à contrôler plusieurs facettes de pages Web qui sont servies par Apache. 
@@ -33,13 +34,13 @@ https://httpd.apache.org/docs/2.4/fr/howto/htaccess.html
 
 
 2- Il n'y a pas de répertoire assets qui va contenir le dossier css. On l’ajoute sous le dossier public de cette façon :
-
+```bash
 public
     assets
      css
      images
       js
-
+```
 
 3- Ajouter ce template add-update.tpl.php sous user dans Views.
 
@@ -48,12 +49,16 @@ Les améliorations :
 
 1- Dans le fichier index.php on peut  faire extraire les routes dans un fichier qu’on peut appeler “routes.php” 
 et on le place sous la racine de projet , et après dans ce fichier index.php on fait l’inclure 
-comme ca:  require __DIR__ . '/../app/routes.php';
+comme ca: 
+```bash
+ require __DIR__ . '/../app/routes.php';
+ ```
 
 2 - Dans le fichier index.php et dans l’implémentation des routes il y a la fonction 
 map qui peut prendre en paramètre les 2 méthodes GET et POST , donc on peut éviter les redondances et
 l’améliorer comme ça : ( exemple ici pour l’ajout de student)
 
+```bash
 $router->map(
 'GET | POST',
 '/students/add',
@@ -63,17 +68,22 @@ $router->map(
 ],
 'student_add_get'
 );
-
+```
 3- Dans le controlleur  CoreControlleur  : il y a une répétition :
 
+```bash
 'student_update_get' => ['admin', 'user'],
 'student_update_get' => ['admin', 'user'],
+```
 
 
 4- Dans le controlleur  CoreControlleur Mettre les accès et les autorisations aux
 routes dans un fichier à part sous la racine de projet , par exemple on le nomme 
-un fichier acl.php  ,puis on fait l’inclure comme ca:  require __DIR__ . '/../acl.php';
+un fichier acl.php  ,puis on fait l’inclure comme ca: 
 
+```bash
+require __DIR__ . '/../acl.php';
+```
 
 5 - Renommer user sous Views avec appuser;
 6 - Sous  les templates Student et Teacher on peut rassembler l'ajout et la mise à jour dans une seule template.

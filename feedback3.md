@@ -20,8 +20,9 @@ RewriteRule ^(.*)$ index.php [QSA,L]
 ```
 
 Nous pouvons donc maintenant écrire :
-
+```bash
 home.html (index.php?page=home)
+```
 
 En faite , Le fichier .htaccess est un fichier de configuration Apache . Le fichier est extrêmement puissant
 et peut être utilisé pour aider à contrôler plusieurs facettes de pages Web qui sont servies par Apache.
@@ -43,12 +44,13 @@ nécessitant une connexion utilisateur dans CoreControlleur.
 
 5- Il n'y a pas de répertoire assets qui va contenir le dossier css. On l’ajoute sous le dossier public de cette façon :
 
+```bash
 public
    assets
      css
      images
      js
-
+```
 
 
 
@@ -56,7 +58,11 @@ Les améliorations :
 
 1- Dans le fichier index.php on peut  faire extraire les routes dans un fichier qu’on peut appeler “routes.php”
 et on le place sous la racine de projet , et après dans ce fichier index.php on fait l’inclure
-comme ca:  require __DIR__ . '/../app/routes.php';
+comme ca:  
+
+```bash
+require __DIR__ . '/../app/routes.php';
+```
 
 2- Dans Views il manque les templates connexion des utilisateurs et des erreurs et de navigation.
 
